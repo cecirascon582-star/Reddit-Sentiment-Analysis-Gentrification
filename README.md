@@ -99,3 +99,31 @@ Este proyecto sirve como una prueba de concepto y, como investigadora de ciencia
   
 
 * **Modelado de Tópicos (Topic Modeling):** Usar LDA (Latent Dirichlet Allocation) o BERTopic para identificar *por qué* el sentimiento es negativo (ej. "aumento en las rentas", "odio entre culturas", "miedo a lo nuevo").
+
+---
+
+## Reproducibilidad
+
+Este análisis es 100% reproducible. Cualquiera puede verificar estos hallazgos siguiendo estos pasos:
+
+1.  **Clona** este repositorio en tu máquina local (IMPORTANTE: No lo descargues como ZIP):
+    ```bash
+    git clone https://github.com/cecirascon582-star/Reddit-Sentiment-Analysis-Gentrification.git
+    ```
+
+2.  Crea un archivo `.env` en la raíz del proyecto con tus propias credenciales de la API de Reddit.
+    *(Nota: El script `.py` está configurado para buscar las variables `REDi` y `REDDit`)*.
+    ```text
+    REDi=TU_CLIENT_ID_DE_REDDIT
+    REDDit=TU_CLIENT_SECRET_DE_REDDIT
+    ```
+
+3.  Instala todas las dependencias (bibliotecas) automáticamente usando el archivo `requirements.txt`:
+    ```bash
+    pip3 install -r requirements.txt
+    ```
+
+4.  Ejecuta el script de análisis:
+    ```bash
+    python3 "Prueba3 adv.py"
+    ```
