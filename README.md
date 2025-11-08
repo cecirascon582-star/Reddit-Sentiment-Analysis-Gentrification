@@ -73,9 +73,29 @@ Este proyecto demuestra un flujo de trabajo completo de ciencia de datos sociale
 3.  **Agregación:** Cálculo del promedio de todas las puntuaciones de polaridad para obtener el sentimiento general del hilo.
 
 
+## Proyecto 2: Modelado de Tópicos (El "¿Por Qué?")
+
+El Proyecto 1 estableció que el sentimiento es mayoritariamente **NEGATIVO** (-0.57). Este segundo análisis profundiza para identificar las **causas subyacentes** de ese descontento.
+
+### Metodología Avanzada
+
+Para encontrar la "señal" debajo del "ruido" de las palabras de "relleno" como: "y", "el", "entonces"... Apliqué el modelo de *Topic Modeling*, **BERTopic**, basado en Transformers, con un filtro de *stop words* en español. Ésto permitió que las palabras que si eran importantes para el análisis del tema, se aislaran.
+
+### Hallazgo Clave: Confrontación Cultural
+
+El modelo de IA identificó dos tópicos principales, siendo el **Tópico 0** el dominante y, la clave del sentimiento negativo.
+
+| Tópico | Conteo | Inferencia de la Causa     | Palabras Clave Dominantes |
+| **0**  |   21   | **CONFRONTACIÓN CULTURAL** | [mexicanos, gringos, gente, si, misma, quieren...] |
+| **1**  |   17   | Logística / Vivienda       | [sabe, xd, not, men, hombre, final, do, caso...] |
+|  -1    |   6    | Ruido / No Clasificado     | - |
+
+**Conclusión:**
+La polaridad negativa no es por quejas genéricas, sino que ésta es impulsada por la **fricción social directa**. Las palabras clave sugieren una discusión centrada en el conflicto entre la población **mexicana** y los **extranjeros ("gringos")**.
+
+Ésto valida la necesidad de usar métodos de Social Data Science para transformar discusiones emocionales en evidencia estructurada.
 
 ## Reflexión
-
 
 
 Este proyecto sirve como una prueba de concepto y, como investigadora de ciencias sociales, reconozco que tiene **limitaciones**:
