@@ -85,9 +85,9 @@ Para encontrar la "señal" debajo del "ruido" de las palabras de "relleno" como:
 
 El modelo de IA identificó dos tópicos principales, siendo el **Tópico 0** el dominante y, la clave del sentimiento negativo.
 
-* Tópico **0**, Conteo [21], Inferencia de la Causa [**CONFRONTACIÓN CULTURAL**], Palabras Clave Dominantes [mexicanos, gringos, gente, si, misma, quieren...]
-* Tópico **1**, Conteo [17], Inferencia de la Causa [Logística / Vivienda], Palabras Clave Dominantes [sabe, xd, not, men, hombre, final, do, caso...]
-* Tópico -1 , Conteo [6], Inferencia de la Causa [Ruido / No Clasificado], Palabras Clave Dominantes [-]
+* Tópico **0**, Conteo [19], Inferencia de la Causa [**CONFRONTACIÓN CULTURAL**], Palabras Clave Dominantes [mexicanos, gringos, gente, si, misma, quieren...]
+* Tópico **1**, Conteo [18], Inferencia de la Causa [Logística / Vivienda], Palabras Clave Dominantes [sabe, xd, not, men, hombre, final, do, caso...]
+* Tópico -1 , Conteo [7], Inferencia de la Causa [Ruido / No Clasificado], Palabras Clave Dominantes [-]
 
 
 **Conclusión:**
@@ -110,40 +110,45 @@ La polaridad negativa no es por quejas genéricas, sino que ésta es impulsada p
 
 
 
-**Próximos Pasos:**
+## Próximos Pasos
 
-
-
-* **Análisis a Escala:** Expandir la extracción de datos sobre gentrificación en la Ciudad de México del último año, para un análisis longitudinal.
+* **Análisis a Escala:** Expandir la extracción de datos a múltiples fuentes sobre la gentrificación en la CDMX del último año, para un análisis longitudinal.
+  
+* **Análisis Geoespacial (Mapeo):** Hacer *web scraping* de precios de Airbnb/rentas para crear un mapa de calor (`GeoPandas`) y visualizar *dónde* se concentra el fenómeno en la CDMX.
 
   
 
-* **Modelado de Tópicos (Topic Modeling):** Usar LDA (Latent Dirichlet Allocation) o BERTopic para identificar *por qué* el sentimiento es negativo (ej. "aumento en las rentas", "odio entre culturas", "miedo a lo nuevo").
-
----
-
 ## Reproducibilidad
 
-Este análisis es 100% reproducible. Cualquiera puede verificar estos hallazgos siguiendo estos pasos:
+Este análisis es 100% reproducible. Cualquiera puede verificar los hallazgos de **los dos proyectos** (Sentimiento y Tópicos) siguiendo estos pasos:
 
-1.  **Clona** este repositorio en tu máquina local (IMPORTANTE: No lo descargues como ZIP):
+
+1.  **Clona** este repositorio en tu máquina local:
     ```bash
-    git clone https://github.com/cecirascon582-star/Reddit-Sentiment-Analysis-Gentrification.git
+    git clone [https://github.com/cecirascon582-star/Reddit-Sentiment-Analysis-Gentrification.git](https://github.com/cecirascon582-star/Reddit-Sentiment-Analysis-Gentrification.git)
     ```
 
-2.  Crea un archivo `.env` en la raíz del proyecto con tus propias credenciales de la API de Reddit.
-    *(Nota: El script `.py` está configurado para buscar las variables `REDi` y `REDDit`)*.
+
+2.  Crea un archivo `.env` en la raíz del proyecto con tus credenciales de la API de Reddit. (El script busca `REDi` y `REDDit`).
     ```text
     REDi=TU_CLIENT_ID_DE_REDDIT
     REDDit=TU_CLIENT_SECRET_DE_REDDIT
     ```
 
-3.  Instala todas las dependencias (bibliotecas) automáticamente usando el archivo `requirements.txt`:
+
+3.  Instala **todas** las dependencias (`praw`, `bertopic`, `nltk`, etc.) automáticamente usando el archivo `requirements.txt`:
     ```bash
     pip3 install -r requirements.txt
     ```
 
-4.  Ejecuta el script de análisis:
-    ```bash
-    python3 "Prueba3 adv.py"
-    ```
+
+4.  Ejecuta los scripts **en orden**:
+    * **Proyecto 1 (Análisis de Sentimiento):**
+        ```bash
+        python3 "Prueba3 adv.py"
+        ```
+    * **Proyecto 2 (Modelado de Tópicos):**
+        ```bash
+        python3 "Parte 2/Topic.py" 
+        ```
+
