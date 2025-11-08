@@ -1,11 +1,11 @@
 import pandas as pd
 from bertopic import BERTopic
 from sklearn.feature_extraction.text import CountVectorizer
-pd.set_option('display.max_columns', None)
+pd.set_option("display.max_columns", None)
 import nltk
 from nltk.corpus import stopwords #nltk es la librería de procesamiento de lenguaje natural más usada
 #.corpus es el archivo
-nltk.download('stopwords')
+nltk.download("stopwords")
 
 
 print ("Iniciando el Projecto 2 - Topic Modeling....")
@@ -25,10 +25,37 @@ comentarios = df["Frase"].astype(str).tolist() #Todos los elementos de la column
 
 print (f"Se cargaron {len(comentarios)} comentarios para anazlizar.")
 
+print("\n" * 2)
+print("Creando filtro de stop words con lista personalizada...")
+
+custom_stop_words=["removed",
+                   "comment",
+                   "https",
+                   "www",
+                   "com",
+                   "cdmx",
+                   "jajaj",
+                   "jajaja",
+                   "jajajjaja",
+                   "jaja",
+                   "jeje",
+                   "jejeje",
+                   "pues",
+                   "gente",
+                   "pensé",
+                   "pongan",
+                   "digo",
+                   "xd",
+                   "si",
+                   "lol"
+]
+
 lista_stop_words_espanol = stopwords.words('spanish')
-vectorizer = CountVectorizer(stop_words=lista_stop_words_espanol)
+lista_stop__words_total= lista_stop_words_espanol + custom_stop_words
+vectorizer = CountVectorizer(stop_words=lista_stop__words_total)
 #CountVectorizer convierte el texto en una matriz de conteo de palabras
 #Quita las palabras vacías en español usando la lista de stopwords de nltk (de "relleno")
+
 
 #Ahora sí, a hacer Topic Modeling con el AI
 
@@ -104,14 +131,14 @@ print("\n")
 
 id_tema = tema_principal['Topic']
 if id_tema == 0: 
-    print("Se puede inferir que la opinión NEGATIVA es debido a que el tema central es la CONFRONTACIÓN.")
-    print("Las palabras clave (mexicanos, gringos, gente) sugieren una discusión sobre conflictos culturales o la presencia y comportamiento de extranjeros en la zona.")
+    print("Se puede inferir que la opinión NEGATIVA es debido a que el tema central es la CONFRONTACIÓN SOCIOECONÓMICA.")
+    print("Las palabras clave (mexicanos, gringos, negocios) sugieren un conflicto que no es solo cultural, sino que está directamente ligado a los negocios y al impacto económico.")
 
 elif id_tema == 1: 
-    print("La conclusión es neutral. El tema central parece ser la LOGÍSTICA (transporte, vivienda).")
+    print("La conclusión es NEUTRAL. El tema central (hacemos, wendy, five) parece ser una conversación fuera de tema (off-topic) y no relevante para el análisis.")
 
 else:
-    print("No se pudo inferir una conclusión específica para este tema.")
+    print("No se pudo decidir una conclusión específica para este tema.")
 
 print("\n")
 print("Fin del Projecto 2 - Topic Modeling.")
