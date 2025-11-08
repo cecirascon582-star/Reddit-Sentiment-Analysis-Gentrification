@@ -26,9 +26,9 @@ El análisis de los comentarios extraídos de la discusión reveló:
 
 
 
-* Un sentimiento general ** NEGATIVO **.
+* Un sentimiento general **NEGATIVO**.
 
-* Una puntuación de polaridad promedio de ** -0.57 **.
+* Una puntuación de polaridad promedio de **-0.57**.
 
 
 
