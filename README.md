@@ -85,10 +85,10 @@ Para encontrar la "señal" debajo del "ruido" de las palabras de "relleno" como:
 
 El modelo de IA identificó dos tópicos principales, siendo el **Tópico 0** el dominante y, la clave del sentimiento negativo.
 
-| Tópico | Conteo | Inferencia de la Causa     | Palabras Clave Dominantes |
-| **0**  |   21   | **CONFRONTACIÓN CULTURAL** | [mexicanos, gringos, gente, si, misma, quieren...] |
-| **1**  |   17   | Logística / Vivienda       | [sabe, xd, not, men, hombre, final, do, caso...] |
-|  -1    |   6    | Ruido / No Clasificado     | - |
+* Tópico **0**, Conteo [21], Inferencia de la Causa [**CONFRONTACIÓN CULTURAL**], Palabras Clave Dominantes [mexicanos, gringos, gente, si, misma, quieren...]
+* Tópico **1**, Conteo [17], Inferencia de la Causa [Logística / Vivienda], Palabras Clave Dominantes [sabe, xd, not, men, hombre, final, do, caso...]
+* Tópico -1 , Conteo [6], Inferencia de la Causa [Ruido / No Clasificado], Palabras Clave Dominantes [-]
+
 
 **Conclusión:**
 La polaridad negativa no es por quejas genéricas, sino que ésta es impulsada por la **fricción social directa**. Las palabras clave sugieren una discusión centrada en el conflicto entre la población **mexicana** y los **extranjeros ("gringos")**.
@@ -98,7 +98,7 @@ La polaridad negativa no es por quejas genéricas, sino que ésta es impulsada p
 ## Reflexión
 
 
-Este proyecto sirve como una prueba de concepto y, como investigadora de ciencias sociales, reconozco que tiene **limitaciones**:
+Éste proyecto sirve como una prueba de concepto y, como investigadora de ciencias sociales reconozco que tiene **limitaciones**:
 
 
 
