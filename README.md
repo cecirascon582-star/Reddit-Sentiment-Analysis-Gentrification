@@ -75,23 +75,25 @@ Este proyecto demuestra un flujo de trabajo completo de ciencia de datos sociale
 
 ## Proyecto 2: Modelado de Tópicos (El "¿Por Qué?")
 
-El Proyecto 1 estableció que el sentimiento es mayoritariamente **NEGATIVO** (-0.57). Este segundo análisis profundiza para identificar las **causas subyacentes** de ese descontento.
+El Proyecto 1 estableció que el sentimiento es en su mayoría **NEGATIVO** (-0.57). Éste segundo análisis profundiza para identificar las **causas subyacentes** de ese descontento.
 
 ### Metodología Avanzada
 
-Para encontrar la "señal" debajo del "ruido" de las palabras de "relleno" como: "y", "el", "entonces"... Apliqué el modelo de *Topic Modeling*, **BERTopic**, basado en Transformers, con un filtro de *stop words* en español. Ésto permitió que las palabras que si eran importantes para el análisis del tema, se aislaran.
+Después de múltiples intentos para eliminar el "ruido" (stop words gramaticales y contextuales como 'jaja' o 'removed'), se aplicó un modelo final con una **lista de stop-words personalizada**.
 
-### Hallazgo Clave: Confrontación Cultural
+Este "hack" forzó al modelo de IA (BERTopic) a ignorar el ruido y enseñarnos la verdadera causa del descontento.
 
-El modelo de IA identificó dos tópicos principales, siendo el **Tópico 0** el dominante y, la clave del sentimiento negativo.
+### Hallazgo Clave: Conflicto Socioeconómico
 
-* Tópico **0**, Conteo [19], Inferencia de la Causa [**CONFRONTACIÓN CULTURAL**], Palabras Clave Dominantes [mexicanos, gringos, gente, si, misma, quieren...]
-* Tópico **1**, Conteo [18], Inferencia de la Causa [Logística / Vivienda], Palabras Clave Dominantes [sabe, xd, not, men, hombre, final, do, caso...]
-* Tópico -1 , Conteo [7], Inferencia de la Causa [Ruido / No Clasificado], Palabras Clave Dominantes [-]
+El modelo de IA identificó un tópico irrelevante (fuera de tema) y, el **Tópico 0**, el central, que explica el sentimiento negativo.
+
+* Tópico **0**, Conteo [19], Inferencia de la Causa [**CONFRONTACIÓN CULTURAL**], Palabras Clave Dominantes [mexicanos, gringos, negocios, misma, mismo]
+* Tópico **1**, Conteo [18], Inferencia de la Causa [Off-topic], Palabras Clave Dominantes [hacemos, wendy, conoce, creer, five]
+* Tópico -1 , Conteo [7], Inferencia de la Causa [No Clasificado], Palabras Clave Dominantes [-]
 
 
 **Conclusión:**
-La polaridad negativa no es por quejas genéricas, sino que ésta es impulsada por la **fricción social directa**. Las palabras clave sugieren una discusión centrada en el conflicto entre la población **mexicana** y los **extranjeros ("gringos")**.
+La polaridad negativa es impulsada por una **fricción socioeconómica** clara. Las palabras clave dominantes (`mexicanos`, `gringos`, `negocios`) sugieren que el conflicto no es solo cultural, sino que está **directamente ligado a los negocios** y al impacto económico que su llegada del extranjero a la Ciudad de México a tenido.
 
 Ésto valida la necesidad de usar métodos de Social Data Science para transformar discusiones emocionales en evidencia estructurada.
 
@@ -114,7 +116,7 @@ La polaridad negativa no es por quejas genéricas, sino que ésta es impulsada p
 
 * **Análisis a Escala:** Expandir la extracción de datos a múltiples fuentes sobre la gentrificación en la CDMX del último año, para un análisis longitudinal.
   
-* **Análisis Geoespacial (Mapeo):** Hacer *web scraping* de precios de Airbnb/rentas para crear un mapa de calor (`GeoPandas`) y visualizar *dónde* se concentra el fenómeno en la CDMX.
+* **Análisis Geoespacial:** Hacer *web scraping* de precios de Airbnb/rentas para crear un mapa de calor (`GeoPandas`) y visualizar *dónde* se concentra el fenómeno en la CDMX.
 
   
 
