@@ -1,6 +1,6 @@
 # Un Análisis de Métodos Mixtos (NLP + Geoespacial) en la CDMX
 
-**Análisis de Social Data Science (NLP, Topic Modeling y GIS) sobre el discurso (Reddit) y el fenómeno físico (Airbnb) de la gentrificación.**to.**
+**Análisis de Social Data Science (NLP, Topic Modeling y GIS) sobre el discurso (Reddit) y el fenómeno físico (Airbnb) de la gentrificación.**
 
 Éste portafolio es un proyecto de investigación interactivo
 ---
