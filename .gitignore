@@ -1,0 +1,6 @@
+# Ignorar el archivo
+.env
+#Ignorar archivos de datos y outputs
+.csv
+.xlsx
+.html
