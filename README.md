@@ -1,91 +1,35 @@
-# Reddit-Sentiment-Analysis-Gentrification
+# Un Análisis de Métodos Mixtos (NLP + Geoespacial) en la CDMX
 
-**NLP sentiment analysis of Reddit discussions (Mexico City) on gentrification using PRAW and Pysentimiento.**
+**Análisis de Social Data Science (NLP, Topic Modeling y GIS) sobre el discurso (Reddit) y el fenómeno físico (Airbnb) de la gentrificación.**to.**
 
+Éste portafolio es un proyecto de investigación interactivo
 ---
-
 
 
 ## Resumen del Proyecto
 
 
+La gentrificación es uno de los fenómenos más debatidos en la Ciudad de México. Es ruidoso y se basa principalmente en **evidencia anectódica**, evidencia "tirada al aire". Ésta investigación es un intento de ir un paso más allá al aprovechar los recursos disponibles y **triangular** los datos para responder tres preguntas:
 
-La gentrificación es uno de los fenómenos socioeconómicos más debatidos en la Ciudad de México. El sentimiento público está altamente polarizado, pero, en general, se basa en evidencia hablada, "tirada al aire".
+1. **¿Qué?:** Cuantificar el *sentimiento* usando NLP
+2. **¿Por qué?:** Identificar la *causa* de ese sentimiento con Topic Modeling
+3. **¿Dónde?:** Localizar éste *fenómeno* con Mapeo Geoespacial
 
+## Proyecto 1: Análisis de Sentimiento ("¿Qué?")
 
-
-Este proyecto intenta ir un paso más allá al **cuantificar el sentimiento público sobre el tema**, utilizando comentarios de una discusión en Reddit como un *proxy* (sustituto medible) de la opinión pública, capturando discusiones en tiempo real y sin filtros para analizar la percepción dominante.
-
-
-
-## Hallazgos Clave
-
-
-
-El análisis de los comentarios extraídos de la discusión reveló:
+* **Método:** Se usó la API de Reddit (Praw) y `Pysentimiento` (NLP) para analizar un pedacito de debate.
+* **Hallazgos:** El sentimiento público fue indiscutiblemente **negativo** con un puntaje de polaridad promedio de **-0.57**.
 
 
-
-* Un sentimiento general **NEGATIVO**.
-
-* Una puntuación de polaridad promedio de **-0.57**.
+## Proyecto 2: Modelado de Tópicos ("¿Por Qué?")
 
 
-
-Esto sugiere que dentro de esta comunidad digital del link de Reddit existe un claro descontento generalizado hacia el fenómeno de la gentrificación.
-
-
-
-## Metodología y Herramientas
-
-
-
-Este proyecto demuestra un flujo de trabajo completo de ciencia de datos sociales, desde la extracción hasta el análisis.
-
-
-
-### 1. Herramientas Utilizadas
-
-
-
-* **Python 3.9**
-
-* **PRAW (Python Reddit API Wrapper):** Para autenticarse de forma segura y extraer datos en vivo de la API de Reddit.
-
-* **Pandas:** Para limpiar, estructurar y transformar los comentarios en un DataFrame analizable.
-
-* **Pysentimiento:** Un modelo de Procesamiento de Lenguaje Natural (NLP) pre-entrenado y optimizado para el español, usado para realizar el análisis de sentimiento.
-
-* **Deep-Translator:** Para la traducción de frases (Su función era un objetivo secundario).
-
-* **Dotenv / Gitignore:** Para una gestión segura de las credenciales de la API, siguiendo las mejores prácticas de seguridad.
-
-
-
-### 2. Proceso
-
-
-
-1.  **Extracción de Datos:** Conexión a la API de Reddit para extraer todos los comentarios (incluyendo respuestas anidadas) del hilo objetivo.
-
-2.  **Análisis de Sentimiento:** Aplicación del modelo "pysentimiento" a cada comentario en español para asignar una puntuación de polaridad ("POS=1", "NEU=0", "NEG=-1").
-
-3.  **Agregación:** Cálculo del promedio de todas las puntuaciones de polaridad para obtener el sentimiento general del hilo.
-
-
-## Proyecto 2: Modelado de Tópicos (El "¿Por Qué?")
-
-El Proyecto 1 estableció que el sentimiento es en su mayoría **NEGATIVO** (-0.57). Éste segundo análisis profundiza para identificar las **causas subyacentes** de ese descontento.
-
-### Metodología Avanzada
-
-Después de múltiples intentos para eliminar el "ruido" (stop words gramaticales y contextuales como 'jaja' o 'removed'), se aplicó un modelo final con una **lista de stop-words personalizada**.
-
-Este "hack" forzó al modelo de IA (BERTopic) a ignorar el ruido y enseñarnos la verdadera causa del descontento.
+El Proyecto 1 estableció que el sentimiento es en su mayoría **NEGATIVO** (-0.57). En éste segundo análisis profundiza con un modelo `BERTopic` (basado en Transformers) y una *lista de **stopwords personalizada*** para eliminar el "ruido" (palabras cómo `jajaj`, `removed`, `xd`...) y encontrar la raíz de la causa. 
 
 ### Hallazgo Clave: Conflicto Socioeconómico
 
-El modelo de IA identificó un tópico irrelevante (fuera de tema) y, el **Tópico 0**, el central, que explica el sentimiento negativo.
+
+El modelo de IA identificó un tópico "ruido" (fuera de tema) y, el **Tópico 0**, la explicación del sentimiento negativo.
 
 * Tópico **0**, Conteo [19], Inferencia de la Causa [**CONFRONTACIÓN CULTURAL**], Palabras Clave Dominantes [mexicanos, gringos, negocios, misma, mismo]
 * Tópico **1**, Conteo [18], Inferencia de la Causa [Off-topic], Palabras Clave Dominantes [hacemos, wendy, conoce, creer, five]
@@ -93,9 +37,21 @@ El modelo de IA identificó un tópico irrelevante (fuera de tema) y, el **Tópi
 
 
 **Conclusión:**
-La polaridad negativa es impulsada por una **fricción socioeconómica** clara. Las palabras clave dominantes (`mexicanos`, `gringos`, `negocios`) sugieren que el conflicto no es solo cultural, sino que está **directamente ligado a los negocios** y al impacto económico que su llegada del extranjero a la Ciudad de México a tenido.
+La polaridad negativa es impulsada por una **fricción socioeconómica** clara. El conflicto (`mexicanos`, `gringos`) está ligado directamente a los `negocios` y al impacto económico percibido.
 
-Ésto valida la necesidad de usar métodos de Social Data Science para transformar discusiones emocionales en evidencia estructurada.
+![Barchart de Tópicos](Barchart.png)
+
+## Proyecto 3: Mapeo Geoespacial ("¿Dónde?")
+
+Pregunta que nos debemos de hacer ¿Es éste un conflicto sólo una "plática" (Reddit) o un "fenómeno físico"?
+
+* **Método:** Se analizaron *26, 401* listados de **Inside AirBnb** (una fuente de datos académicos) usando `Geopandas` para el análisis espacial.
+* **Visualización:** Se generó un mapa interactivo con `Folium` que incluye un **Mapa de Calor** para la *densidad*, y **Círculos de Precios** para los *costos*.
+
+## Hallazgos Clave:
+
+El mapa de calor prueba que el fenómeno  **es físico**. 
+
 
 ## Reflexión
 
