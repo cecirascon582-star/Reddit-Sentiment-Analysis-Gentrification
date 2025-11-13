@@ -55,7 +55,7 @@ El mapa de calor prueba que el fenómeno **es físico**. Los "clusters" de más 
 **Demo del Mapa Interactivo (Demo Interactivo):**
 (Muestra el *heatmap* de densidad y los *pop-ups* de precios)
 
-![Demo del Mapa Interactivo](mapa_demo.gif)
+![Demo del Mapa Interactivo](mapa_demo.gif) 
 
 ## Conclusión: El Poder de los Métodos Mixtos (La unión hace la fuerza)
 
