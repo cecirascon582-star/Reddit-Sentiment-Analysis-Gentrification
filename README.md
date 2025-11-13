@@ -50,7 +50,19 @@ Pregunta que nos debemos de hacer ¿Es éste un conflicto sólo una "plática" (
 
 ## Hallazgos Clave:
 
-El mapa de calor prueba que el fenómeno  **es físico**. 
+El mapa de calor prueba que el fenómeno **es físico**. Los "clusters" de más alta densidad y precio de Airbnb se superponen perfectamente con las zonas de las que la gente se queja (ej. Roma, Condesa), validando que el "discurso" de Reddit está anclado a una realidad tangible.
+
+**Demo del Mapa Interactivo (Demo Interactivo):**
+(Muestra el *heatmap* de densidad y los *pop-ups* de precios)
+
+![Demo del Mapa Interactivo](mapa_demo.gif)
+
+## Conclusión: El Poder de los Métodos Mixtos (La unión hace la fuerza)
+
+* **P1+P2 (Reddit):** Nos dicen que la gente *percibe* un conflicto socioeconómico (`gringos` + `negocios`).
+* **P3 (Airbnb):** Nos *prueba* que este conflicto se concentra en "clusters" geográficos específicos y caros.
+
+Juntos, estos 3 proyectos demuestran cómo la Ciencia de Datos Sociales puede transformar un debate anecdótico en **evidencia estructurada** (Qué, Por Qué y Dónde).
 
 
 ## Reflexión
@@ -70,35 +82,31 @@ El mapa de calor prueba que el fenómeno  **es físico**.
 
 ## Reproducibilidad
 
-Este análisis es 100% reproducible. Cualquiera puede verificar los hallazgos de **los dos proyectos** (Sentimiento y Tópicos) siguiendo estos pasos:
+Este análisis es 100% reproducible. Cualquiera puede verificar los hallazgos de **los 3 proyectos** (Sentimiento, Tópicos y Mapeo) siguiendo estos pasos:
 
 
-1.  **Clona** este repositorio en tu máquina local:
+1. Este análisis es 100% reproducible.
+
+1.  **Clona** el repositorio:
     ```bash
     git clone [https://github.com/cecirascon582-star/Reddit-Sentiment-Analysis-Gentrification.git](https://github.com/cecirascon582-star/Reddit-Sentiment-Analysis-Gentrification.git)
     ```
+    
+2.  Crea un archivo `.env` con tus credenciales de Reddit (`REDi`, `REDDit`).
 
+   
+3.  Descarga el `listings.csv` de [Inside Airbnb](http://insideairbnb.com/get-the-data/) y ponlo en la carpeta raíz.
 
-2.  Crea un archivo `.env` en la raíz del proyecto con tus credenciales de la API de Reddit. (El script busca `REDi` y `REDDit`).
-    ```text
-    REDi=TU_CLIENT_ID_DE_REDDIT
-    REDDit=TU_CLIENT_SECRET_DE_REDDIT
-    ```
-
-
-3.  Instala **todas** las dependencias (`praw`, `bertopic`, `nltk`, etc.) automáticamente usando el archivo `requirements.txt`:
+  
+4.  Instala **todas** las dependencias (`bertopic`, `geopandas`, `folium`, etc.):
     ```bash
     pip3 install -r requirements.txt
     ```
 
-
-4.  Ejecuta los scripts **en orden**:
-    * **Proyecto 1 (Análisis de Sentimiento):**
-        ```bash
-        python3 "Prueba3 adv.py"
-        ```
-    * **Proyecto 2 (Modelado de Tópicos):**
-        ```bash
-        python3 "Parte 2/Topic.py" 
-        ```
-
+    
+5.  Ejecuta los scripts **en orden**:
+    ```bash
+    python3 "Prueba3 adv.py"        # Proyecto 1: Sentimiento
+    python3 "Parte 2/Topic.py"      # Proyecto 2: Tópicos
+    python3 "Geo.py"                # Proyecto 3: Mapa
+    ```
