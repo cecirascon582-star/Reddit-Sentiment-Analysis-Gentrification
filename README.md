@@ -66,14 +66,6 @@ El mapa de calor prueba que el fenómeno  **es físico**.
 
 * **Contexto Limitado:** Mi análisis es sólo una foto de un momento específico, no la película entera.
 
-
-
-## Próximos Pasos
-
-* **Análisis a Escala:** Expandir la extracción de datos a múltiples fuentes sobre la gentrificación en la CDMX del último año, para un análisis longitudinal.
-  
-* **Análisis Geoespacial:** Hacer *web scraping* de precios de Airbnb/rentas para crear un mapa de calor (`GeoPandas`) y visualizar *dónde* se concentra el fenómeno en la CDMX.
-
   
 
 ## Reproducibilidad
