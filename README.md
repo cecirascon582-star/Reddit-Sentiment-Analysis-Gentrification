@@ -31,7 +31,7 @@ El Proyecto 1 estableció que el sentimiento es en su mayoría **NEGATIVO** (-0.
 
 El modelo de IA identificó un tópico "ruido" (fuera de tema) y, el **Tópico 1**, la explicación del sentimiento negativo.
 
-* Tópico **1**, Conteo [19], Inferencia de la Causa [**CONFRONTACIÓN CULTURAL**], Palabras Clave Dominantes [mexicanos, gringos, negocios, misma, mismo]
+* Tópico **1**, Conteo [19], Inferencia de la Causa [**CONFRONTACIÓN SOCIOECONÓMICA**], Palabras Clave Dominantes [mexicanos, gringos, negocios, misma, mismo]
 * Tópico **0**, Conteo [18], Inferencia de la Causa [Off-topic], Palabras Clave Dominantes [hacemos, wendy, conoce, creer, five]
 * Tópico -1 , Conteo [7], Inferencia de la Causa [No Clasificado], Palabras Clave Dominantes [-]
 
