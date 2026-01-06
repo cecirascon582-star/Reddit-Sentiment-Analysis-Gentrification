@@ -107,3 +107,4 @@ This project is 100% reproducible. Follow these steps to verify findings:
 
 * **Sample Bias:** Reddit users do not represent the entire demographic of Mexico City.
 * **Temporal Scope:** This analysis represents a snapshot in time and does not account for seasonal market fluctuations.
+* **Strategic Implications:** This framework provides a scalable tool for Urban Planning and Real Estate Investment Risk Assessment, allowing stakeholders to identify social friction hotspots before they impact asset valuation.
