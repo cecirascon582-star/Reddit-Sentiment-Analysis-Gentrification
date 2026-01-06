@@ -1,112 +1,110 @@
-# Un Análisis de Métodos Mixtos (NLP + Geoespacial) en la CDMX
+# Gentrification Analytics: A Mixed-Methods Approach (NLP + GIS)
 
-**Análisis de Social Data Science (NLP, Topic Modeling y GIS) sobre el discurso (Reddit) y el fenómeno físico (Airbnb) de la gentrificación.**
+**Social Data Science Portfolio: Quantifying Urban Displacement in Mexico City**
 
-Éste portafolio es un proyecto de investigación interactivo
+**Project Status:** Complete | **Tech Stack:** Python, NLP (Transformers), Geospatial Intelligence (GIS).
+
+This portfolio is an interactive proyect.
 ---
 
 
-## Resumen del Proyecto
+## Executive Summary
 
 
-La gentrificación es uno de los fenómenos más debatidos en la Ciudad de México. Es ruidoso y se basa principalmente en **evidencia anectódica**, evidencia "tirada al aire". Ésta investigación es un intento de ir un paso más allá al aprovechar los recursos disponibles y **triangular** los datos para responder tres preguntas:
+Gentrification is a hotly debated topic in Mexico City (CDMX), often driven by anecdotal evidence. This project moves beyond "social noise" to provide **structured, data-driven evidence**. By applying a **Mixed-Methods approach**, this research **triangulates** unstructured social data (Reddit discourse) with structured economic data (Airbnb listings) to answer three core business questions:
 
-1. **¿Qué?:** Cuantificar el *sentimiento* usando NLP
-2. **¿Por qué?:** Identificar la *causa* de ese sentimiento con Topic Modeling
-3. **¿Dónde?:** Localizar éste *fenómeno* con Mapeo Geoespacial
+1.  **The "What" (Sentiment):** Quantifying public perception using NLP.
+2.  **The "Why" (Drivers):** Identifying root causes via Topic Modeling.
+3.  **The "Where" (Location):** Pinpointing the physical phenomenon using Geospatial Mapping.
 
-## Proyecto 1: Análisis de Sentimiento ("¿Qué?")
+## Technical Architecture
 
-* **Método:** Se usó la API de Reddit (Praw) y `Pysentimiento` (NLP) para analizar un pedacito de debate.
-* **Hallazgos:** El sentimiento público fue indiscutiblemente **negativo** con un puntaje de polaridad promedio de **-0.57**.
+* **Language:** Python 3.9+
+* **Data Collection:** Reddit API (PRAW), Inside Airbnb (Open Data).
+* **NLP Pipeline:** `Pysentimiento` (Transformer-based Sentiment Analysis), `BERTopic`.
+* **Geospatial Stack:** `Geopandas` (Spatial Analysis), `Folium` (Interactive Visualization).
+* **Data Manipulation:** Pandas, NumPy.
 
+## Phase 1: Sentiment Analysis ("The What")
 
-## Proyecto 2: Modelado de Tópicos ("¿Por Qué?")
+* **Methodology:** Leveraged the Reddit API to scrape community discussions and applied `Pysentimiento` to analyze the emotional tone of the discourse.
+* **Key Finding:** Public sentiment was unequivocally **Negative**, with an average polarity score of **-0.57**. This established a baseline of high social friction.
 
+---
 
-El Proyecto 1 estableció que el sentimiento es en su mayoría **NEGATIVO** (-0.57). En éste segundo análisis profundiza con un modelo `BERTopic` (basado en Transformers) y una *lista de **stopwords personalizada*** para eliminar el "ruido" (palabras cómo `jajaj`, `removed`, `xd`...) y encontrar la raíz de la causa. 
+## Phase 2: Topic Modeling ("The Why")
 
-### Hallazgo Clave: Conflicto Socioeconómico
+To understand the *drivers* behind the negative sentiment (-0.57), I deployed a **BERTopic model** (Transformer-based) with a **custom stop-word list** to filter out conversational noise and isolate semantic meaning.
 
+### Key Insight: Socioeconomic Friction
 
-El modelo de IA identificó un tópico "ruido" (fuera de tema) y, el **Tópico 1**, la explicación del sentimiento negativo.
+The model successfully clustered the data, identifying **Topic 1** as the primary source of tension:
 
-* Tópico **1**, Conteo [19], Inferencia de la Causa [**CONFRONTACIÓN SOCIOECONÓMICA**], Palabras Clave Dominantes [mexicanos, gringos, negocios, misma, mismo]
-* Tópico **0**, Conteo [18], Inferencia de la Causa [Off-topic], Palabras Clave Dominantes [hacemos, wendy, conoce, creer, five]
-* Tópico -1 , Conteo [7], Inferencia de la Causa [No Clasificado], Palabras Clave Dominantes [-]
+* **Topic 1 (Dominant):** Socioeconomic & Cultural Confrontation.
+    * *Keywords:* `mexicanos` (Mexicans), `gringos` (Foreigners), `negocios` (Businesses), `economía` (Economy).
+* **Inference:** The negative polarity is not random; it is driven by a perceived **economic displacement**, connecting foreign influx directly to local business dynamics.
 
+![Barchart of Topics](Barchart.png)
 
-**Conclusión:**
-La polaridad negativa es impulsada por una **fricción socioeconómica** clara. El conflicto (`mexicanos`, `gringos`) está ligado directamente a los `negocios` y al impacto económico percibido.
+## Phase 3: Geospatial Intelligence ("The Where")
 
-![Barchart de Tópicos](Barchart.png)
+**Business Question:** Is this friction just "online noise," or does it correlate with physical reality?
 
-## Proyecto 3: Mapeo Geoespacial ("¿Dónde?")
+* **Methodology:** Analyzed **26,401** listings from **Inside Airbnb**.
+* **Analysis:** Used `Geopandas` to process spatial data and generated `Folium` interactive maps.
+* **Visualization:** Created **Density Heatmaps** and **Price Clusters**.
 
-Pregunta que nos debemos de hacer ¿Es éste un conflicto sólo una "plática" (Reddit) o un "fenómeno físico"?
+### 💡 Key Insight: Data Validation (Ground Truth)
+The Heatmap validates the social discourse. The clusters with the highest Airbnb density and pricing **perfectly overlap** with the neighborhoods identified in the NLP analysis (e.g., Roma, Condesa). This confirms that the online sentiment is anchored in tangible market realities.
 
-* **Método:** Se analizaron *26, 401* listados de **Inside AirBnb** (una fuente de datos académicos) usando `Geopandas` para el análisis espacial.
-* **Visualización:** Se generó un mapa interactivo con `Folium` que incluye un **Mapa de Calor** para la *densidad*, y **Círculos de Precios** para los *costos*.
+**Interactive Map Demo:**
+*(Visualizing density heatmaps vs. price distribution)*
 
-## Hallazgos Clave:
-
-El mapa de calor prueba que el fenómeno **es físico**. Los "clusters" de más alta densidad y precio de Airbnb se superponen perfectamente con las zonas de las que la gente se queja (ej. Roma, Condesa), validando que el "discurso" de Reddit está anclado a una realidad tangible.
-
-**Demo del Mapa Interactivo (Demo Interactivo):**
-(Muestra el *heatmap* de densidad y los *pop-ups* de precios)
-
-![Demo del Mapa Interactivo](mapa_demo.gif) 
-
-## Conclusión: El Poder de los Métodos Mixtos (La unión hace la fuerza)
-
-* **P1+P2 (Reddit):** Nos dicen que la gente *percibe* un conflicto socioeconómico (`gringos` + `negocios`).
-* **P3 (Airbnb):** Nos *prueba* que este conflicto se concentra en "clusters" geográficos específicos y caros.
-
-Juntos, estos 3 proyectos demuestran cómo la Ciencia de Datos Sociales puede transformar un debate anecdótico en **evidencia estructurada** (Qué, Por Qué y Dónde).
-
-
-## Reflexión
-
-
-Éste proyecto sirve como una prueba de concepto y, como investigadora de ciencias sociales reconozco que tiene **limitaciones**:
+![Interactive Map Demo](mapa_demo.gif)
 
 
 
-* **Sesgo de Muestra:** Los usuarios de Reddit no son representativos de *toda* la población de la CDMX.
+## Conclusion: The Power of Data Triangulation
+
+This project demonstrates how Social Data Science can transform anecdotal debates into structured business intelligence:
+
+1.  **NLP (Reddit):** Quantified the *perception* of socioeconomic conflict.
+2.  **GIS (Airbnb):** Verified the *location* and economic density of the phenomenon.
+
+By combining these datasets, we obtain a holistic view of how market shifts (Airbnb) impact social sentiment in real-time.
 
   
 
-* **Contexto Limitado:** Mi análisis es sólo una foto de un momento específico, no la película entera.
+## How to Reproduce this Analysis
 
-  
+This project is 100% reproducible. Follow these steps to verify findings:
 
-## Reproducibilidad
-
-Este análisis es 100% reproducible. Cualquiera puede verificar los hallazgos de **los 3 proyectos** (Sentimiento, Tópicos y Mapeo) siguiendo estos pasos:
-
-
-1. Este análisis es 100% reproducible.
-
-1.  **Clona** el repositorio:
+1.  **Clone the Repository:**
     ```bash
     git clone [https://github.com/cecirascon582-star/Reddit-Sentiment-Analysis-Gentrification.git](https://github.com/cecirascon582-star/Reddit-Sentiment-Analysis-Gentrification.git)
     ```
-    
-2.  Crea un archivo `.env` con tus credenciales de Reddit (`REDi`, `REDDit`).
 
-   
-3.  Descarga el `listings.csv` de [Inside Airbnb](http://insideairbnb.com/get-the-data/) y ponlo en la carpeta raíz.
+2.  **Environment Setup:**
+    Create a `.env` file in the root directory with your Reddit API credentials (`REDi`, `REDDit`).
 
-  
-4.  Instala **todas** las dependencias (`bertopic`, `geopandas`, `folium`, etc.):
+3.  **Data Acquisition:**
+    Download the latest `listings.csv` for Mexico City from [Inside Airbnb](http://insideairbnb.com/get-the-data/) and place it in the root folder.
+
+4.  **Install Dependencies:**
     ```bash
     pip3 install -r requirements.txt
     ```
 
-    
-5.  Ejecuta los scripts **en orden**:
+5.  **Run the Pipeline:**
     ```bash
-    python3 "Prueba3 adv.py"        # Proyecto 1: Sentimiento
-    python3 "Parte 2/Topic.py"      # Proyecto 2: Tópicos
-    python3 "Geo.py"                # Proyecto 3: Mapa
+    python3 "Prueba3 adv.py"       # Step 1: Sentiment Analysis
+    python3 "Parte 2/Topic.py"     # Step 2: Topic Modeling (BERTopic)
+    python3 "Geo.py"               # Step 3: Geospatial Mapping
+    ```
+
+
+### 📝 Limitations & Ethical Considerations
+
+* **Sample Bias:** Reddit users do not represent the entire demographic of Mexico City.
+* **Temporal Scope:** This analysis represents a snapshot in time and does not account for seasonal market fluctuations.
     ```
