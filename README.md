@@ -4,7 +4,7 @@
 
 **Project Status:** Complete | **Tech Stack:** Python, NLP (Transformers), Geospatial Intelligence (GIS).
 
-This portfolio is an interactive proyect.
+This portfolio is an interactive project.
 ---
 
 
@@ -54,7 +54,7 @@ The model successfully clustered the data, identifying **Topic 1** as the primar
 * **Analysis:** Used `Geopandas` to process spatial data and generated `Folium` interactive maps.
 * **Visualization:** Created **Density Heatmaps** and **Price Clusters**.
 
-### 💡 Key Insight: Data Validation (Ground Truth)
+### Key Insight: Data Validation (Ground Truth)
 The Heatmap validates the social discourse. The clusters with the highest Airbnb density and pricing **perfectly overlap** with the neighborhoods identified in the NLP analysis (e.g., Roma, Condesa). This confirms that the online sentiment is anchored in tangible market realities.
 
 **Interactive Map Demo:**
